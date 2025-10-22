@@ -1,20 +1,14 @@
 {
-    "name": "squareetlabs/laravel-verifactu",
+    "name": "mmbuxan/laravel-verifactu",
     "description": "Paquete Laravel para gestión y registro de facturación electrónica VeriFactu. Compatible con Laravel 10 a 12.x",
     "type": "library",
     "license": "MIT",
     "keywords": ["laravel", "verifactu", "facturacion electrónica"],
     "authors": [
         {
-            "name": "Alberto Rial Barreiro",
-            "email": "alberto@squareet.com",
-            "homepage": "https://www.squareet.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Jacobo Cantorna Cigarrán",
-            "email": "jacobo@squareet.com",
-            "homepage": "https://www.squareet.com",
+            "name": "Jorge Picón",
+            "email": "jorge@mmbuxan.com",
+            "homepage": "https://www.mmbuxan.com",
             "role": "Developer"
         }
     ],
@@ -24,23 +18,23 @@
     },
     "autoload": {
         "psr-4": {
-            "Squareetlabs\\VeriFactu\\": "src/"
+            "MMBuxan\\VeriFactu\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Factories\\Squareetlabs\\VeriFactu\\Models\\": "database/factories/Squareetlabs/VeriFactu/Models/"
+            "Database\\Factories\\MMBuxan\\VeriFactu\\Models\\": "database/factories/MMBuxan/VeriFactu/Models/"
           }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Squareetlabs\\VeriFactu\\Providers\\VeriFactuServiceProvider"
+                "MMBuxan\\VeriFactu\\Providers\\VeriFactuServiceProvider"
             ],
             "aliases": {
-                "VeriFactu": "Squareetlabs\\VeriFactu\\Facades\\VeriFactu"
+                "VeriFactu": "MMBuxan\\VeriFactu\\Facades\\VeriFactu"
             }
         }
     },

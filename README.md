@@ -4,12 +4,15 @@
 
 
 <p align="center">
-<a href="https://scrutinizer-ci.com/g/squareetlabs/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/squareetlabs/LaravelVerifactu/badges/quality-score.png?b=master" alt="Quality Score"></a>
-<a href="https://scrutinizer-ci.com/g/squareetlabs/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/squareetlabs/LaravelVerifactu/badges/code-intelligence.svg?b=master" alt="Code Intelligence"></a>
-<a href="https://packagist.org/packages/squareetlabs/laravel-verifactu"><img class="latest_stable_version_img" src="https://poser.pugx.org/squareetlabs/laravel-verifactu/v/stable" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/squareetlabs/laravel-verifactu"><img class="total_img" src="https://poser.pugx.org/squareetlabs/laravel-verifactu/downloads" alt="Total Downloads"></a> 
-<a href="https://packagist.org/packages/squareetlabs/laravel-verifactu"><img class="license_img" src="https://poser.pugx.org/squareetlabs/laravel-verifactu/license" alt="License"></a>
+<a href="https://scrutinizer-ci.com/g/mmbuxan/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/mmbuxan/LaravelVerifactu/badges/quality-score.png?b=master" alt="Quality Score"></a>
+<a href="https://scrutinizer-ci.com/g/mmbuxan/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/mmbuxan/LaravelVerifactu/badges/code-intelligence.svg?b=master" alt="Code Intelligence"></a>
+<a href="https://packagist.org/packages/mmbuxan/laravel-verifactu"><img class="latest_stable_version_img" src="https://poser.pugx.org/mmbuxan/laravel-verifactu/v/stable" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/mmbuxan/laravel-verifactu"><img class="total_img" src="https://poser.pugx.org/mmbuxan/laravel-verifactu/downloads" alt="Total Downloads"></a> 
+<a href="https://packagist.org/packages/mmbuxan/laravel-verifactu"><img class="license_img" src="https://poser.pugx.org/mmbuxan/laravel-verifactu/license" alt="License"></a>
 </p>
+
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/aichadigital/lara-verifactu/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/aichadigital/lara-verifactu/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/aichadigital/lara-verifactu/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/aichadigital/lara-verifactu/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 
 ---
 
@@ -24,19 +27,88 @@
 - 🧪 Factories y tests unitarios para todos los componentes core
 - 🔌 Listo para extensión y uso en producción
 
----
+<!-- ---
 
 ## 📦 Instalación
 
 ```bash
-composer require squareetlabs/laravel-verifactu
+composer require mmbuxan/laravel-verifactu
 ```
 
 Publica la configuración y migraciones:
 
 ```bash
-php artisan vendor:publish --provider="Squareetlabs\VeriFactu\Providers\VeriFactuServiceProvider"
+php artisan vendor:publish --provider="MMBuxan\VeriFactu\Providers\VeriFactuServiceProvider"
 php artisan migrate
+``` -->
+
+---
+
+## 🚀 Instalación (Desarrollo Local)
+
+> **⚠️ IMPORTANTE**: Este paquete **NO está publicado en Packagist**. Solo se puede instalar desde el repositorio local para desarrollo y testing.
+
+### Opción 1: Path Repository (Recomendado)
+
+1. **Clona el repositorio en tu workspace local:**
+
+```bash
+cd ~/development/packages
+git clone https://github.com/githubmmbuxan/LaravelVerifactu.git
+cd LaravelVerifactu
+composer install
+```
+
+2. **En tu proyecto Laravel, añade el repositorio local en `composer.json`:**
+
+```json
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../development/packages/LaravelVerifactu",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "require": {
+        "mmbuxan/LaravelVerifactu": "@dev"
+    }
+}
+```
+
+3. **Instala el paquete:**
+
+```bash
+composer update mmbuxan/LaravelVerifactu
+```
+
+Composer creará un symlink desde `vendor/mmbuxan/LaravelVerifactu` a tu repositorio local.
+
+### Opción 2: Symlink Manual
+
+```bash
+# En tu proyecto Laravel
+cd vendor
+mkdir -p mmbuxan
+cd mmbuxan
+ln -s ~/development/packages/LaravelVerifactu LaravelVerifactu
+```
+
+### Configuración Inicial
+
+```bash
+# Publicar configuración y migraciones
+php artisan verifactu:install
+
+# Configurar certificado digital en .env
+VERIFACTU_ENVIRONMENT=sandbox
+VERIFACTU_CERT_PATH=./certificates/tu_certificado.p12
+VERIFACTU_CERT_PASSWORD=tu_password
+
+# Probar conexión con AEAT
+php artisan verifactu:test-connection
 ```
 
 ---
@@ -64,9 +136,9 @@ return [
 ### Crear una Invoice (Ejemplo de Controller)
 
 ```php
-use Squareetlabs\VeriFactu\Http\Requests\StoreInvoiceRequest;
-use Squareetlabs\VeriFactu\Models\Invoice;
-use Squareetlabs\VeriFactu\Http\Resources\InvoiceResource;
+use MMBuxan\VeriFactu\Http\Requests\StoreInvoiceRequest;
+use MMBuxan\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Http\Resources\InvoiceResource;
 
 public function store(StoreInvoiceRequest $request)
 {
@@ -86,8 +158,8 @@ A continuación, ejemplos de cómo crear cada tipo de invoice usando el modelo y
 
 ### Factura estándar
 ```php
-use Squareetlabs\VeriFactu\Models\Invoice;
-use Squareetlabs\VeriFactu\Enums\InvoiceType;
+use MMBuxan\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Enums\InvoiceType;
 
 $invoice = Invoice::create([
     'number' => 'INV-STD-001',
@@ -161,8 +233,8 @@ $invoice = Invoice::create([
 
 ```php
 use Illuminate\Http\Request;
-use Squareetlabs\VeriFactu\Services\AeatClient;
-use Squareetlabs\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Services\AeatClient;
+use MMBuxan\VeriFactu\Models\Invoice;
 
 class InvoiceAeatController extends Controller
 {
@@ -187,8 +259,8 @@ class InvoiceAeatController extends Controller
 ## 🧩 Validación y creación de Breakdown (Ejemplo de Controller)
 
 ```php
-use Squareetlabs\VeriFactu\Http\Requests\StoreBreakdownRequest;
-use Squareetlabs\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Http\Requests\StoreBreakdownRequest;
+use MMBuxan\VeriFactu\Models\Breakdown;
 
 public function storeBreakdown(StoreBreakdownRequest $request)
 {
@@ -202,9 +274,9 @@ public function storeBreakdown(StoreBreakdownRequest $request)
 ## 🛠️ Uso de Helpers
 
 ```php
-use Squareetlabs\VeriFactu\Helpers\DateTimeHelper;
-use Squareetlabs\VeriFactu\Helpers\StringHelper;
-use Squareetlabs\VeriFactu\Helpers\HashHelper;
+use MMBuxan\VeriFactu\Helpers\DateTimeHelper;
+use MMBuxan\VeriFactu\Helpers\StringHelper;
+use MMBuxan\VeriFactu\Helpers\HashHelper;
 
 $dateIso = DateTimeHelper::formatIso8601('2024-01-01 12:00:00');
 $sanitized = StringHelper::sanitize('  &Hello <World>  ');
@@ -232,7 +304,7 @@ Puedes disparar eventos cuando se crean, actualizan o envían invoices a AEAT. E
 // app/Events/InvoiceSentToAeat.php
 namespace App\Events;
 
-use Squareetlabs\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Invoice;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
@@ -294,7 +366,7 @@ Puedes restringir el acceso a invoices usando policies de Laravel:
 namespace App\Policies;
 
 use App\Models\User;
-use Squareetlabs\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Invoice;
 
 class InvoicePolicy
 {
@@ -314,7 +386,7 @@ Registra la policy en `AuthServiceProvider`:
 
 ```php
 protected $policies = [
-    \Squareetlabs\VeriFactu\Models\Invoice::class => \App\Policies\InvoicePolicy::class,
+    \MMBuxan\VeriFactu\Models\Invoice::class => \App\Policies\InvoicePolicy::class,
 ];
 ```
 
@@ -340,7 +412,7 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Squareetlabs\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Invoice;
 
 class InvoiceSentNotification extends Notification
 {
@@ -374,7 +446,7 @@ $user->notify(new \App\Notifications\InvoiceSentNotification($invoice));
 Puedes enviar invoices a AEAT de forma asíncrona usando colas:
 
 ```php
-use Squareetlabs\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Invoice;
 use App\Jobs\SendInvoiceToAeatJob;
 
 // Despacha el job a la cola
@@ -454,12 +526,12 @@ Este paquete es open-source bajo la [Licencia MIT](LICENSE.md).
 ## 🆘 Soporte
 
 - **Documentación técnica**: https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/informacion-tecnica.html
-- **Issues**: https://github.com/squareetlabs/LaravelVerifactu/issues
+- **Issues**: https://github.com/mmbuxan/LaravelVerifactu/issues
 
-## 👥 Autores
+## 👥 Autor
 
-- **Alberto Rial Barreiro** - [SquareetLabs](https://www.squareet.com)
-- **Jacobo Cantorna Cigarrán** - [SquareetLabs](https://www.squareet.com)
+- Esta librería es un fork de [squareetlabs/LaravelVerifactu](https://github.com/squareetlabs/LaravelVerifactu) ampliado y personalizado.
+- **Jorge Picon** - [MMBuxan](https://www.mmbuxan.com)
 
 ---
 
