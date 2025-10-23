@@ -6,14 +6,14 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Squareetlabs\VeriFactu\Services\AeatClient;
-use Squareetlabs\VeriFactu\Models\Invoice;
-use Squareetlabs\VeriFactu\Models\Breakdown;
-use Squareetlabs\VeriFactu\Models\Recipient;
-use Squareetlabs\VeriFactu\Enums\InvoiceType;
-use Squareetlabs\VeriFactu\Enums\TaxType;
-use Squareetlabs\VeriFactu\Enums\RegimeType;
-use Squareetlabs\VeriFactu\Enums\OperationType;
+use MMBuxan\VeriFactu\Services\AeatClient;
+use MMBuxan\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Models\Recipient;
+use MMBuxan\VeriFactu\Enums\InvoiceType;
+use MMBuxan\VeriFactu\Enums\TaxType;
+use MMBuxan\VeriFactu\Enums\RegimeType;
+use MMBuxan\VeriFactu\Enums\OperationType;
 
 class AeatClientTest extends TestCase
 {

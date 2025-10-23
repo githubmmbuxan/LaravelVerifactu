@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Services;
+namespace MMBuxan\VeriFactu\Services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use Squareetlabs\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Invoice;
 use Illuminate\Support\Facades\Log;
 
 class AeatClient
@@ -87,7 +87,7 @@ class AeatClient
             'previous_hash' => '', // Si aplica, para encadenamiento
             'generated_at' => now()->format('c'),
         ];
-        $hashResult = \Squareetlabs\VeriFactu\Helpers\HashHelper::generateInvoiceHash($hashData);
+        $hashResult = \MMBuxan\VeriFactu\Helpers\HashHelper::generateInvoiceHash($hashData);
 
         // 6. Construir RegistroAlta
         $registroAlta = [

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use Squareetlabs\VeriFactu\Helpers\DateTimeHelper;
+use MMBuxan\VeriFactu\Helpers\DateTimeHelper;
 
 class DateTimeHelperTest extends TestCase
 {

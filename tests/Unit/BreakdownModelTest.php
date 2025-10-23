@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Squareetlabs\VeriFactu\Models\Breakdown;
-use Squareetlabs\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Models\Invoice;
 use Tests\TestCase;
-use Squareetlabs\VeriFactu\Models\TaxType;
-use Squareetlabs\VeriFactu\Models\RegimeType;
-use Squareetlabs\VeriFactu\Models\OperationType;
+use MMBuxan\VeriFactu\Models\TaxType;
+use MMBuxan\VeriFactu\Models\RegimeType;
+use MMBuxan\VeriFactu\Models\OperationType;
 
 class BreakdownModelTest extends TestCase
 {
@@ -16,7 +16,7 @@ class BreakdownModelTest extends TestCase
 
     public function testBreakdownCanBeCreated(): void
     {
-        $invoice = \Database\Factories\Squareetlabs\VeriFactu\Models\InvoiceFactory::new()->create([
+        $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create([
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
         ]);
         $breakdown = Breakdown::factory()->create([
@@ -35,7 +35,7 @@ class BreakdownModelTest extends TestCase
 
     public function testBreakdownSoftDelete(): void
     {
-        $invoice = \Database\Factories\Squareetlabs\VeriFactu\Models\InvoiceFactory::new()->create([
+        $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create([
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
         ]);
         $breakdown = Breakdown::factory()->create([
@@ -47,7 +47,7 @@ class BreakdownModelTest extends TestCase
 
     public function testValidatesTaxAmount(): void
     {
-        $invoice = \Database\Factories\Squareetlabs\VeriFactu\Models\InvoiceFactory::new()->create([
+        $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create([
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
             'issuer_name' => 'Issuer Test',
             'issuer_tax_id' => 'B12345678',

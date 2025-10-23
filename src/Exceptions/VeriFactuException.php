@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Exceptions;
+namespace MMBuxan\VeriFactu\Exceptions;
 
 use Exception;
 

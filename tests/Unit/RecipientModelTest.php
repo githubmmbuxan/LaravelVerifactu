@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Squareetlabs\VeriFactu\Models\Recipient;
-use Squareetlabs\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Recipient;
+use MMBuxan\VeriFactu\Models\Invoice;
 use Tests\TestCase;
 
 class RecipientModelTest extends TestCase
@@ -13,7 +13,7 @@ class RecipientModelTest extends TestCase
 
     public function testRecipientCanBeCreated(): void
     {
-        $invoice = \Database\Factories\Squareetlabs\VeriFactu\Models\InvoiceFactory::new()->create([
+        $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create([
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
         ]);
         $recipient = Recipient::factory()->create([
@@ -32,7 +32,7 @@ class RecipientModelTest extends TestCase
 
     public function testRecipientSoftDelete(): void
     {
-        $invoice = \Database\Factories\Squareetlabs\VeriFactu\Models\InvoiceFactory::new()->create([
+        $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create([
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
         ]);
         $recipient = Recipient::factory()->create([

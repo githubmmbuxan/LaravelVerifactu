@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Models;
+namespace MMBuxan\VeriFactu\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Squareetlabs\VeriFactu\Enums\TaxType;
-use Squareetlabs\VeriFactu\Enums\RegimeType;
-use Squareetlabs\VeriFactu\Enums\OperationType;
+use MMBuxan\VeriFactu\Enums\TaxType;
+use MMBuxan\VeriFactu\Enums\RegimeType;
+use MMBuxan\VeriFactu\Enums\OperationType;
 
 class Breakdown extends Model
 {
@@ -18,7 +18,7 @@ class Breakdown extends Model
 
     protected static function newFactory()
     {
-        return \Database\Factories\Squareetlabs\VeriFactu\Models\BreakdownFactory::new();
+        return \Database\Factories\MMBuxan\VeriFactu\Models\BreakdownFactory::new();
     }
 
     protected $table = 'breakdowns';

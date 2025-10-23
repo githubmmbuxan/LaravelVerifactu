@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Models;
+namespace MMBuxan\VeriFactu\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Squareetlabs\VeriFactu\Enums\InvoiceType;
+use MMBuxan\VeriFactu\Enums\InvoiceType;
 
 class Invoice extends Model
 {
@@ -16,7 +16,7 @@ class Invoice extends Model
 
     protected static function newFactory()
     {
-        return \Database\Factories\Squareetlabs\VeriFactu\Models\InvoiceFactory::new();
+        return \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new();
     }
 
     protected static function booted()
@@ -33,7 +33,7 @@ class Invoice extends Model
                 'previous_hash' => $invoice->previous_hash ?? '', // Si implementas encadenamiento
                 'generated_at' => now()->format('c'),
             ];
-            $hashResult = \Squareetlabs\VeriFactu\Helpers\HashHelper::generateInvoiceHash($hashData);
+            $hashResult = \MMBuxan\VeriFactu\Helpers\HashHelper::generateInvoiceHash($hashData);
             $invoice->hash = $hashResult['hash'];
         });
     }

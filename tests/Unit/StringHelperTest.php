@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use Squareetlabs\VeriFactu\Helpers\StringHelper;
+use MMBuxan\VeriFactu\Helpers\StringHelper;
 
 class StringHelperTest extends TestCase
 {

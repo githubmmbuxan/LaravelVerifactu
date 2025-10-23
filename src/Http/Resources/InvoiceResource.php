@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Http\Resources;
+namespace MMBuxan\VeriFactu\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

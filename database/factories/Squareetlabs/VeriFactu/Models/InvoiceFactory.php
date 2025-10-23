@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories\Squareetlabs\VeriFactu\Models;
+namespace Database\Factories\MMBuxan\VeriFactu\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Squareetlabs\VeriFactu\Models\Invoice;
-use Squareetlabs\VeriFactu\Enums\InvoiceType;
+use MMBuxan\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Enums\InvoiceType;
 
 class InvoiceFactory extends Factory
 {

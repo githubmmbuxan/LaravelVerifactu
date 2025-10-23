@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Enums;
+namespace MMBuxan\VeriFactu\Enums;
 
 enum TaxType: string
 {

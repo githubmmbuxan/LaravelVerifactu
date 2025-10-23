@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Http\Requests;
+namespace MMBuxan\VeriFactu\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Squareetlabs\VeriFactu\Enums\InvoiceType;
+use MMBuxan\VeriFactu\Enums\InvoiceType;
 
 class StoreInvoiceRequest extends FormRequest
 {

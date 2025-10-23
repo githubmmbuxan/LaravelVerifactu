@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Squareetlabs\VeriFactu\Models\Invoice;
-use Squareetlabs\VeriFactu\Models\Breakdown;
-use Squareetlabs\VeriFactu\Models\Recipient;
+use MMBuxan\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Models\Recipient;
 use Tests\TestCase;
 
 class InvoiceModelTest extends TestCase
@@ -25,7 +25,7 @@ class InvoiceModelTest extends TestCase
 
     public function testInvoiceHasBreakdownsAndRecipients(): void
     {
-        $invoice = \Database\Factories\Squareetlabs\VeriFactu\Models\InvoiceFactory::new()->create();
+        $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create();
         $breakdown = Breakdown::factory()->create(['invoice_id' => $invoice->id]);
         $recipient = Recipient::factory()->create(['invoice_id' => $invoice->id]);
         $this->assertTrue($invoice->breakdowns->contains($breakdown));
@@ -54,23 +54,23 @@ class InvoiceModelTest extends TestCase
             'amount' => 100.00,
             'tax' => 21.00,
             'total' => 121.00,
-            'type' => \Squareetlabs\VeriFactu\Enums\InvoiceType::STANDARD,
+            'type' => \MMBuxan\VeriFactu\Enums\InvoiceType::STANDARD,
             'description' => 'Advanced invoice test',
             'status' => 'draft',
         ];
-        $invoice = \Database\Factories\Squareetlabs\VeriFactu\Models\InvoiceFactory::new()->create($invoiceData);
+        $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create($invoiceData);
         // Relacionar breakdowns
-        $breakdown = \Database\Factories\Squareetlabs\VeriFactu\Models\BreakdownFactory::new()->create([
+        $breakdown = \Database\Factories\MMBuxan\VeriFactu\Models\BreakdownFactory::new()->create([
             'invoice_id' => $invoice->id,
-            'tax_type' => \Squareetlabs\VeriFactu\Enums\TaxType::VAT,
-            'regime_type' => \Squareetlabs\VeriFactu\Enums\RegimeType::GENERAL,
-            'operation_type' => \Squareetlabs\VeriFactu\Enums\OperationType::SUBJECT_NO_EXEMPT_NO_REVERSE,
+            'tax_type' => \MMBuxan\VeriFactu\Enums\TaxType::VAT,
+            'regime_type' => \MMBuxan\VeriFactu\Enums\RegimeType::GENERAL,
+            'operation_type' => \MMBuxan\VeriFactu\Enums\OperationType::SUBJECT_NO_EXEMPT_NO_REVERSE,
             'tax_rate' => 21.00,
             'base_amount' => 100.00,
             'tax_amount' => 21.00,
         ]);
         // Relacionar recipients
-        $recipient = \Database\Factories\Squareetlabs\VeriFactu\Models\RecipientFactory::new()->create([
+        $recipient = \Database\Factories\MMBuxan\VeriFactu\Models\RecipientFactory::new()->create([
             'invoice_id' => $invoice->id,
             'name' => 'Advanced Recipient',
             'tax_id' => 'C99999999',
@@ -116,7 +116,7 @@ class InvoiceModelTest extends TestCase
             'previous_hash' => '',
             'generated_at' => $invoice->updated_at->format('c'),
         ];
-        $expectedHash = \Squareetlabs\VeriFactu\Helpers\HashHelper::generateInvoiceHash($hashData)['hash'];
+        $expectedHash = \MMBuxan\VeriFactu\Helpers\HashHelper::generateInvoiceHash($hashData)['hash'];
         $this->assertEquals($expectedHash, $invoice->hash);
     }
 } 

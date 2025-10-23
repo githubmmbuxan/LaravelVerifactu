@@ -11,7 +11,7 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app)
     {
         return [
-            \Squareetlabs\VeriFactu\Providers\VeriFactuServiceProvider::class,
+            \MMBuxan\VeriFactu\Providers\VeriFactuServiceProvider::class,
         ];
     }
 

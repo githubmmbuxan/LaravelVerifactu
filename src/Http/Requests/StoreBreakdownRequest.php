@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Http\Requests;
+namespace MMBuxan\VeriFactu\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Squareetlabs\VeriFactu\Enums\TaxType;
-use Squareetlabs\VeriFactu\Enums\RegimeType;
-use Squareetlabs\VeriFactu\Enums\OperationType;
+use MMBuxan\VeriFactu\Enums\TaxType;
+use MMBuxan\VeriFactu\Enums\RegimeType;
+use MMBuxan\VeriFactu\Enums\OperationType;
 
 class StoreBreakdownRequest extends FormRequest
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Models;
+namespace MMBuxan\VeriFactu\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,7 +15,7 @@ class Recipient extends Model
 
     protected static function newFactory()
     {
-        return \Database\Factories\Squareetlabs\VeriFactu\Models\RecipientFactory::new();
+        return \Database\Factories\MMBuxan\VeriFactu\Models\RecipientFactory::new();
     }
 
     protected $table = 'recipients';

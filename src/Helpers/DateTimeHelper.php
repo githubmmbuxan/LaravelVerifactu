@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Helpers;
+namespace MMBuxan\VeriFactu\Helpers;
 
 use DateTime;
 use Exception;

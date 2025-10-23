@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories\Squareetlabs\VeriFactu\Models;
+namespace Database\Factories\MMBuxan\VeriFactu\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Squareetlabs\VeriFactu\Models\Recipient;
+use MMBuxan\VeriFactu\Models\Recipient;
 
 class RecipientFactory extends Factory
 {

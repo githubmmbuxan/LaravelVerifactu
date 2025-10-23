@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use Squareetlabs\VeriFactu\Helpers\HashHelper;
+use MMBuxan\VeriFactu\Helpers\HashHelper;
 
 class HashHelperTest extends TestCase
 {

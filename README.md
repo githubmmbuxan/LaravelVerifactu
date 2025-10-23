@@ -530,8 +530,8 @@ Este paquete es open-source bajo la [Licencia MIT](LICENSE.md).
 
 ## 👥 Autor
 
-- Esta librería es un fork de [squareetlabs/LaravelVerifactu](https://github.com/squareetlabs/LaravelVerifactu) ampliado y personalizado.
-- **Jorge Picon** - [MMBuxan](https://www.mmbuxan.com)
+- Esta librería es un fork de [MMBuxan/LaravelVerifactu](https://github.com/MMBuxan/LaravelVerifactu) ampliado y personalizado.
+- **Jorge Picón** - [MMBuxan](https://www.mmbuxan.com)
 
 ---
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Squareetlabs\VeriFactu\Providers;
+namespace MMBuxan\VeriFactu\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

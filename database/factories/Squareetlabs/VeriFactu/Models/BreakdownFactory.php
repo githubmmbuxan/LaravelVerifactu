@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories\Squareetlabs\VeriFactu\Models;
+namespace Database\Factories\MMBuxan\VeriFactu\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Squareetlabs\VeriFactu\Models\Breakdown;
-use Squareetlabs\VeriFactu\Enums\TaxType;
-use Squareetlabs\VeriFactu\Enums\RegimeType;
-use Squareetlabs\VeriFactu\Enums\OperationType;
+use MMBuxan\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Enums\TaxType;
+use MMBuxan\VeriFactu\Enums\RegimeType;
+use MMBuxan\VeriFactu\Enums\OperationType;
 
 class BreakdownFactory extends Factory
 {
