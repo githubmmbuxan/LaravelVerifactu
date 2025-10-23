@@ -1,5 +1,5 @@
 {
-    "name": "mmbuxan/laravel-verifactu",
+    "name": "mmbuxan/laravelverifactu",
     "description": "Paquete Laravel para gestión y registro de facturación electrónica VeriFactu. Compatible con Laravel 10 a 12.x",
     "type": "library",
     "license": "MIT",
