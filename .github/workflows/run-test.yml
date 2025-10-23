@@ -60,15 +60,8 @@ jobs:
       - name: Install dependencies
         run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
-      - name: Ensure Pest.php exists
-        run: |
-          mkdir -p tests
-          if [ ! -f tests/Pest.php ]; then
-            echo "<?php\n\nuses()->group('default');" > tests/Pest.php
-          fi
-
       - name: List Installed Dependencies (optional)
         run: composer show -D
 
       - name: Execute tests
-        run: php vendor/pestphp/pest/bin/pest --no-configuration
+        run: vendor/bin/pest --ci
