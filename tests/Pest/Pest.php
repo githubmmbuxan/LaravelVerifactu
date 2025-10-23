@@ -20,6 +20,10 @@ uses(TestCase::class)->in('Unit');
 |
 */
 
+it('is true', function () {
+    expect(true)->toBeTrue();
+});
+
 // expect()->extend('toBeOne', function () {
 //     return $this->toBe(1);
 // });
