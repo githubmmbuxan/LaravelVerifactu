@@ -57,6 +57,8 @@ cd ~/development/packages
 git clone https://github.com/githubmmbuxan/LaravelVerifactu.git
 cd LaravelVerifactu
 composer install
+php artisan vendor:publish --provider="MMBuxan\VeriFactu\Providers\VeriFactuServiceProvider"
+php artisan migrate
 ```
 
 2. **En tu proyecto Laravel, añade el repositorio local en `composer.json`:**
