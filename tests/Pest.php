@@ -6,8 +6,8 @@ declare(strict_types=1);
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-uses(TestCase::class)->in(__DIR__);
-uses(RefreshDatabase::class)->in('Feature');
+uses(TestCase::class)->in('Unit');
+// uses(RefreshDatabase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +20,9 @@ uses(RefreshDatabase::class)->in('Feature');
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
+// expect()->extend('toBeOne', function () {
+//     return $this->toBe(1);
+// });
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +35,8 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
-{
-    // ..
-}
+// function something()
+// {
+//     // ..
+// }
 
