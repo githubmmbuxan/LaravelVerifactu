@@ -71,4 +71,4 @@ jobs:
         run: composer show -D
 
       - name: Execute tests
-        run: php vendor/pestphp/pest/bin/pest --ci
+        run: php vendor/pestphp/pest/bin/pest --no-configuration
