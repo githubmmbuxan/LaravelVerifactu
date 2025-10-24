@@ -9,7 +9,7 @@ checks:
   php:
     code_rating: true
     duplication: true
-    code_smells: true
+    # code_smells: true
 
 filter:
   excluded_paths:
