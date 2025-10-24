@@ -67,4 +67,4 @@ jobs:
         run: vendor/bin/phpunit tests/Unit
       
       - name: Run Pest tests (si existen)
-        run: vendor/bin/pest tests/Pest --ci
+        run: vendor/bin/pest tests/Pest/Pest --ci
