@@ -57,12 +57,29 @@ jobs:
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
           composer require --dev "pestphp/pest:${{ matrix.pest }}" --no-interaction --no-update
 
-      - name: Install dependencies
-        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress --no-suggest -vvv || true
+      - name: Install dependencies (no-scripts)
+        run: |
+          # configure composer cache directory to runner temp (avoid permission/cache issues)
+          composer config cache-dir "$RUNNER_TEMP/composer-cache"
+          # install/update dependencies but skip running any composer scripts/plugins to avoid failing post-install script
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress --no-suggest --no-scripts
 
       - name: List Installed Dependencies (optional)
         run: composer show -D
       
+      - name: Search for suspicious cache flags (debug)
+        run: |
+          # search repo for any occurrences of cache-related flags that might be passed incorrectly
+          grep -R -- "--cache-directory" -n || true
+          grep -R -- "--cache-dir" -n || true
+          # also print composer.json scripts if present
+          jq '.scripts // {}' composer.json || true
+
+      - name: Diagnose composer scripts (verbose)
+        run: |
+          # run a verbose composer update (allow failure so logs are always available)
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress --no-suggest -vvv || true
+
       - name: Run tests
         run: vendor/bin/pest tests --ci
 
