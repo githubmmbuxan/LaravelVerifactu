@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 
-use Tests\TestCase;
+use Tests\Pest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-uses(TestCase::class)->in('Unit');
+uses(Pest::class)->in('Pest');
 // uses(RefreshDatabase::class)->in('Feature');
 
 /*
