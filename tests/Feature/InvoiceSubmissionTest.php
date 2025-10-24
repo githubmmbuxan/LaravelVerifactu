@@ -49,7 +49,7 @@ it('can create and store a valid invoice with breakdown and hash', function () {
     $this->assertDatabaseHas('invoices', [
         'uuid' => $invoice->uuid,
         'number' => 'FAC-FEATURE-001',
-        'total' => '121.00',
+        'total' => 121.00,
     ]);
 
     $this->assertDatabaseHas('breakdowns', [
@@ -64,7 +64,7 @@ it('can create and store a valid invoice with breakdown and hash', function () {
 
 it('rejects invalid tax amount in breakdown', function () {
     $invoice = Invoice::factory()->create();
-    $breakdown = Breakdown::factory()->create([
+    $breakdown = new Breakdown([
         'invoice_id' => $invoice->id,
         'tax_type' => TaxTypeEnum::VAT,
         'regime_type' => RegimeTypeEnum::GENERAL,
@@ -74,11 +74,5 @@ it('rejects invalid tax amount in breakdown', function () {
         'tax_amount' => 99.99, // ❌ Inválido
     ]);
 
-    // Guardar debería fallar (según tu lógica de validación)
-    try {
-        $breakdown->save();
-        $this->fail('Should not accept invalid tax amount');
-    } catch (\Exception $e) {
-        // OK
-    }
-})->skip('Depends on Breakdown model validation logic');
+    expect(fn () => $breakdown->save())->toThrow(\InvalidArgumentException::class);
+});

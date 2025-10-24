@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace MMBuxan\VeriFactu\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use MMBuxan\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Observers\BreakdownObserver;
 
 class VeriFactuServiceProvider extends ServiceProvider
 {
@@ -29,5 +31,10 @@ class VeriFactuServiceProvider extends ServiceProvider
 
         // Publicar migraciones
         $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
+
+        // Registrar observer solo si está habilitado
+        if (config('verifactu.enable_breakdown_validation', true)) {
+            Breakdown::observe(BreakdownObserver::class);
+        }
     }
 } 
