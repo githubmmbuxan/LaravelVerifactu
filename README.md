@@ -4,15 +4,19 @@
 
 
 <p align="center">
-<a href="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/badges/quality-score.png?b=master" alt="Quality Score"></a>
-<a href="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/badges/code-intelligence.svg?b=master" alt="Code Intelligence"></a>
-<a href="https://packagist.org/packages/githubmmbuxan/laravel-verifactu"><img class="latest_stable_version_img" src="https://poser.pugx.org/githubmmbuxan/laravel-verifactu/v/stable" alt="Latest Stable Version"></a>
+<a href="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/badges/quality-score.png?b=main" alt="Quality Score"></a>
+<a href="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/badges/coverage.png?b=main" alt="Code Coverage"></a>
+<a href="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/badges/build.png?b=main" alt="Code Build"></a>
+<a href="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/"><img src="https://scrutinizer-ci.com/g/githubmmbuxan/LaravelVerifactu/badges/code-intelligence.svg?b=main" alt="Code Intelligence"></a>
+<a href="https://github.com/githubmmbuxan/LaravelVerifactu/actions/workflows/run-test.yml"><img src="https://github.com/githubmmbuxan/LaravelVerifactu/actions/workflows/run-test.yml/badge.svg?branch=main" alt="Github Action Tests"></a>
+<a href="https://github.com/githubmmbuxan/LaravelVerifactu/actions?query=workflow%3A'Fix+PHP+code+style+issues'+branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/githubmmbuxan/LaravelVerifactu/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-rounded" alt="GitHub Code Style Action Status"></a>
+<!-- <a href="https://packagist.org/packages/githubmmbuxan/laravel-verifactu"><img class="latest_stable_version_img" src="https://poser.pugx.org/githubmmbuxan/laravel-verifactu/v/stable" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/githubmmbuxan/laravel-verifactu"><img class="total_img" src="https://poser.pugx.org/githubmmbuxan/laravel-verifactu/downloads" alt="Total Downloads"></a> 
-<a href="https://packagist.org/packages/githubmmbuxan/laravel-verifactu"><img class="license_img" src="https://poser.pugx.org/githubmmbuxan/laravel-verifactu/license" alt="License"></a>
+<a href="https://packagist.org/packages/githubmmbuxan/laravel-verifactu"><img class="license_img" src="https://poser.pugx.org/githubmmbuxan/laravel-verifactu/license" alt="License"></a> -->
 </p>
 
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/githubmmbuxan/LaravelVerifactu/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/githubmmbuxan/LaravelVerifactu/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/githubmmbuxan/LaravelVerifactu/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/githubmmbuxan/LaravelVerifactu/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+<!-- [![run-tests](https://github.com/githubmmbuxan/LaravelVerifactu/actions/workflows/run-test.yml/badge.svg?branch=main)](https://github.com/githubmmbuxan/LaravelVerifactu/actions/workflows/run-test.yml) -->
+<!-- [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/githubmmbuxan/LaravelVerifactu/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/githubmmbuxan/LaravelVerifactu/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain) -->
 
 ---
 

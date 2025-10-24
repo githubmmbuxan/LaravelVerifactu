@@ -1,6 +1,7 @@
 build:
   nodes:
     analysis:
+      project_root: .
       project_setup:
         override:
           - "true"
