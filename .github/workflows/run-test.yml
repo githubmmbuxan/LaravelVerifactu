@@ -88,4 +88,4 @@ jobs:
         run: |
           composer show pestphp/pest
           ls -la tests/
-          php vendor/bin/pest --version
+          php vendor/bin/pest --version --coverage-xdebug=coverage.xml
