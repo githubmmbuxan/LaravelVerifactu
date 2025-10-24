@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MMBuxan\VeriFactu\Enums;
 
-enum OperationType: string
+enum OperationTypeEnum: string
 {
     case SUBJECT_NO_EXEMPT_NO_REVERSE = 'S1';
     case SUBJECT_NO_EXEMPT_REVERSE = 'S2';

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use MMBuxan\VeriFactu\Models\Breakdown;
-use MMBuxan\VeriFactu\Models\Invoice;
 use Tests\TestCase;
-use MMBuxan\VeriFactu\Models\TaxType;
-use MMBuxan\VeriFactu\Models\RegimeType;
-use MMBuxan\VeriFactu\Models\OperationType;
+use MMBuxan\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
+use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
+use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class BreakdownModelTest extends TestCase
 {
@@ -54,9 +54,9 @@ class BreakdownModelTest extends TestCase
         ]);
         $breakdown = new Breakdown([
             'invoice_id' => $invoice->id,
-            'tax_type' => TaxType::VAT,
-            'regime_type' => RegimeType::GENERAL,
-            'operation_type' => OperationType::SUBJECT_NO_EXEMPT_NO_REVERSE,
+            'tax_type' => TaxTypeEnum::VAT,
+            'regime_type' => RegimeTypeEnum::GENERAL,
+            'operation_type' => OperationTypeEnum::SUBJECT_NO_EXEMPT_NO_REVERSE,
             'tax_rate' => 21.00,
             'base_amount' => 100.00,
             'tax_amount' => 21.00,

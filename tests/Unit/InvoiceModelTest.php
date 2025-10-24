@@ -62,9 +62,9 @@ class InvoiceModelTest extends TestCase
         // Relacionar breakdowns
         $breakdown = \Database\Factories\MMBuxan\VeriFactu\Models\BreakdownFactory::new()->create([
             'invoice_id' => $invoice->id,
-            'tax_type' => \MMBuxan\VeriFactu\Enums\TaxType::VAT,
-            'regime_type' => \MMBuxan\VeriFactu\Enums\RegimeType::GENERAL,
-            'operation_type' => \MMBuxan\VeriFactu\Enums\OperationType::SUBJECT_NO_EXEMPT_NO_REVERSE,
+            'tax_type' => \MMBuxan\VeriFactu\Enums\TaxTypeEnum::VAT,
+            'regime_type' => \MMBuxan\VeriFactu\Enums\RegimeTypeEnum::GENERAL,
+            'operation_type' => \MMBuxan\VeriFactu\Enums\OperationTypeEnum::SUBJECT_NO_EXEMPT_NO_REVERSE,
             'tax_rate' => 21.00,
             'base_amount' => 100.00,
             'tax_amount' => 21.00,

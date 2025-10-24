@@ -6,9 +6,9 @@ namespace Database\Factories\MMBuxan\VeriFactu\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use MMBuxan\VeriFactu\Models\Breakdown;
-use MMBuxan\VeriFactu\Enums\TaxType;
-use MMBuxan\VeriFactu\Enums\RegimeType;
-use MMBuxan\VeriFactu\Enums\OperationType;
+use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
+use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
+use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
 
 class BreakdownFactory extends Factory
 {
@@ -17,9 +17,9 @@ class BreakdownFactory extends Factory
     public function definition(): array
     {
         return [
-            'tax_type' => $this->faker->randomElement(array_column(TaxType::cases(), 'value')),
-            'regime_type' => $this->faker->randomElement(array_column(RegimeType::cases(), 'value')),
-            'operation_type' => $this->faker->randomElement(array_column(OperationType::cases(), 'value')),
+            'tax_type' => $this->faker->randomElement(array_column(TaxTypeEnum::cases(), 'value')),
+            'regime_type' => $this->faker->randomElement(array_column(RegimeTypeEnum::cases(), 'value')),
+            'operation_type' => $this->faker->randomElement(array_column(OperationTypeEnum::cases(), 'value')),
             'tax_rate' => $this->faker->randomFloat(2, 0, 21),
             'base_amount' => $this->faker->randomFloat(2, 100, 1000),
             'tax_amount' => $this->faker->randomFloat(2, 10, 200),

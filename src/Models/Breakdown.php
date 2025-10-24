@@ -7,9 +7,9 @@ namespace MMBuxan\VeriFactu\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use MMBuxan\VeriFactu\Enums\TaxType;
-use MMBuxan\VeriFactu\Enums\RegimeType;
-use MMBuxan\VeriFactu\Enums\OperationType;
+use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
+use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
+use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
 
 class Breakdown extends Model
 {
@@ -34,9 +34,9 @@ class Breakdown extends Model
     ];
 
     protected $casts = [
-        'tax_type' => TaxType::class,
-        'regime_type' => RegimeType::class,
-        'operation_type' => OperationType::class,
+        'tax_type' => TaxTypeEnum::class,
+        'regime_type' => RegimeTypeEnum::class,
+        'operation_type' => OperationTypeEnum::class,
         'tax_rate' => 'decimal:2',
         'base_amount' => 'decimal:2',
         'tax_amount' => 'decimal:2',

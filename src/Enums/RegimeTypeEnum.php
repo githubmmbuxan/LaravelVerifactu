@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MMBuxan\VeriFactu\Enums;
 
-enum RegimeType: string
+enum RegimeTypeEnum: string
 {
     case GENERAL = '01';
     case EXPORT = '02';

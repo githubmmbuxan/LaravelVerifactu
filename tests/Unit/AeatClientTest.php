@@ -11,9 +11,9 @@ use MMBuxan\VeriFactu\Models\Invoice;
 use MMBuxan\VeriFactu\Models\Breakdown;
 use MMBuxan\VeriFactu\Models\Recipient;
 use MMBuxan\VeriFactu\Enums\InvoiceType;
-use MMBuxan\VeriFactu\Enums\TaxType;
-use MMBuxan\VeriFactu\Enums\RegimeType;
-use MMBuxan\VeriFactu\Enums\OperationType;
+use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
+use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
+use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
 
 class AeatClientTest extends TestCase
 {
@@ -43,9 +43,9 @@ class AeatClientTest extends TestCase
         ]);
         $invoice->breakdowns()->create([
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
-            'tax_type' => TaxType::VAT,
-            'regime_type' => RegimeType::GENERAL,
-            'operation_type' => OperationType::SUBJECT_NO_EXEMPT_NO_REVERSE,
+            'tax_type' => TaxTypeEnum::VAT,
+            'regime_type' => RegimeTypeEnum::GENERAL,
+            'operation_type' => OperationTypeEnum::SUBJECT_NO_EXEMPT_NO_REVERSE,
             'tax_rate' => 21,
             'base_amount' => 100,
             'tax_amount' => 21,
