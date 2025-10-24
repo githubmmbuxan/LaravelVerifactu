@@ -33,7 +33,7 @@ abstract class TestCase extends BaseTestCase
             'database' => ':memory:',
             'prefix' => '',
         ]);
-        putenv('VERIFACTU_CERT_PATH=CertsDemo/Ciudadano_autenticacion_Activo.cer');
+        putenv('VERIFACTU_CERT_PATH=certsDemo/Ciudadano_autenticacion_Activo.cer');
         $app['config']->set('verifactu.enable_breakdown_validation', true);
     }
 } 
