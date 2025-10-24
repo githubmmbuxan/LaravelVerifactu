@@ -15,6 +15,11 @@ abstract class TestCase extends BaseTestCase
         ];
     }
 
+    protected function defineDatabaseMigrations()
+    {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+    }
+
     protected function getEnvironmentSetUp($app)
     {
         // Configuración mínima para pruebas, por ejemplo:
@@ -22,6 +27,11 @@ abstract class TestCase extends BaseTestCase
             'name' => 'Test Issuer',
             'vat' => 'A00000000',
         ]);
-        // Puedes añadir más configuración si es necesario
+        $app['config']->set('database.default', 'testbench');
+        $app['config']->set('database.connections.testbench', [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
+        ]);
     }
 } 

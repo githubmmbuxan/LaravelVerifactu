@@ -62,9 +62,6 @@ jobs:
 
       - name: List Installed Dependencies (optional)
         run: composer show -D
-
-      - name: Run PHPUnit tests
-        run: vendor/bin/phpunit tests/Unit
       
-      - name: Run Pest tests (si existen)
-        run: vendor/bin/pest tests/Pest/Pest --ci
+      - name: Run tests
+        run: vendor/bin/pest tests --ci

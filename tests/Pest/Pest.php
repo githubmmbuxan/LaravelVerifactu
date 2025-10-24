@@ -6,8 +6,23 @@ declare(strict_types=1);
 use Tests\Pest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-uses(Pest::class)->in('Pest');
+/*
+|--------------------------------------------------------------------------
+| Test Case
+|--------------------------------------------------------------------------
+|
+| The closure you provide to your test functions is always bound to a specific PHPUnit test
+| case class. By default, that class is "PHPUnit\Framework\TestCase". Of course, you may
+| need to change it using the "pest()" function to bind a different classes or traits.
+|
+*/
+
+// uses(Pest::class)->in('Pest');
 // uses(RefreshDatabase::class)->in('Feature');
+
+pest()->extend(Tests\TestCase::class)
+ // ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
+    ->in('Feature','Pest','Unit');
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +35,9 @@ uses(Pest::class)->in('Pest');
 |
 */
 
-it('is true', function () {
-    expect(true)->toBeTrue();
+expect()->extend('toBeOne', function () {
+    return $this->toBe(1);
 });
-
-// expect()->extend('toBeOne', function () {
-//     return $this->toBe(1);
-// });
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +50,10 @@ it('is true', function () {
 |
 */
 
-// function something()
-// {
-//     // ..
-// }
+function something()
+{
+    it('is true', function () {
+        expect(true)->toBeTrue();
+    });
+}
 
