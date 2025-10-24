@@ -65,3 +65,10 @@ jobs:
       
       - name: Run tests
         run: vendor/bin/pest tests --ci
+
+      - name: Debug Pest in Laravel 11
+        if: matrix.laravel == '11.*'
+        run: |
+          composer show pestphp/pest
+          ls -la tests/
+          php vendor/bin/pest --version
