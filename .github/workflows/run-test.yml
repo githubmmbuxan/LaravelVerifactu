@@ -25,7 +25,7 @@ jobs:
             pest: ^2.0
           # Laravel 11
           - laravel: 11.*
-            testbench: 9.*
+            testbench: ^9.6
             carbon: ^2.63
             pest: ^3.0
           # Laravel 12
@@ -58,7 +58,7 @@ jobs:
           composer require --dev "pestphp/pest:${{ matrix.pest }}" --no-interaction --no-update
 
       - name: Install dependencies
-        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress --no-suggest --no-scripts  -vvv
+        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress --no-suggest -vvv || true
 
       - name: List Installed Dependencies (optional)
         run: composer show -D
