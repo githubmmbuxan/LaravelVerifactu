@@ -58,7 +58,7 @@ jobs:
           composer require --dev "pestphp/pest:${{ matrix.pest }}" --no-interaction --no-update
 
       - name: Install dependencies
-        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress --no-suggest --no-scripts  -vvv
 
       - name: List Installed Dependencies (optional)
         run: composer show -D
