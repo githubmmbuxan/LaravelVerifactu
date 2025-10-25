@@ -2,8 +2,8 @@
 
 namespace MMBuxan\VeriFactu\Observers;
 
-use MMBuxan\VeriFactu\Models\Breakdown;
 use InvalidArgumentException;
+use MMBuxan\VeriFactu\Models\Breakdown;
 
 class BreakdownObserver
 {

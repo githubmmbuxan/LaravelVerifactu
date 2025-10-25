@@ -6,9 +6,9 @@ namespace MMBuxan\VeriFactu\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use MMBuxan\VeriFactu\Enums\TaxType;
-use MMBuxan\VeriFactu\Enums\RegimeType;
 use MMBuxan\VeriFactu\Enums\OperationType;
+use MMBuxan\VeriFactu\Enums\RegimeType;
+use MMBuxan\VeriFactu\Enums\TaxType;
 
 class StoreBreakdownRequest extends FormRequest
 {
@@ -33,4 +33,4 @@ class StoreBreakdownRequest extends FormRequest
             'exemption_description' => ['nullable', 'string', 'max:255'],
         ];
     }
-} 
+}

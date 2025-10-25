@@ -37,4 +37,4 @@ class StoreInvoiceRequest extends FormRequest
             'cancelled_at' => ['nullable', 'date'],
         ];
     }
-} 
+}

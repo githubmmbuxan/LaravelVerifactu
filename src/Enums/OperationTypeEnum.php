@@ -13,11 +13,11 @@ enum OperationTypeEnum: string
 
     public function description(): string
     {
-        return match($this) {
+        return match ($this) {
             self::SUBJECT_NO_EXEMPT_NO_REVERSE => 'Subject and not exempt - No reverse charge',
             self::SUBJECT_NO_EXEMPT_REVERSE => 'Subject and not exempt - With reverse charge',
             self::NOT_SUBJECT_ARTICLES => 'Not subject - Articles 7, 14, others',
             self::NOT_SUBJECT_LOCALIZATION => 'Not subject due to localization rules',
         };
     }
-} 
+}

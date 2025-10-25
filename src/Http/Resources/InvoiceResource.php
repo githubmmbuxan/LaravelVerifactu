@@ -36,4 +36,4 @@ class InvoiceResource extends JsonResource
             'recipients' => RecipientResource::collection($this->whenLoaded('recipients')),
         ];
     }
-} 
+}

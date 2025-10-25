@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-
-use Tests\Pest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\Pest;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +21,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 pest()->extend(Tests\TestCase::class)
  // ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
-    ->in('Feature','Pest','Unit');
+    ->in('Feature', 'Pest', 'Unit');
 
 /*
 |--------------------------------------------------------------------------
@@ -56,4 +55,3 @@ function something()
         expect(true)->toBeTrue();
     });
 }
-

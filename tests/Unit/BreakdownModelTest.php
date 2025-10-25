@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-use Tests\TestCase;
-use MMBuxan\VeriFactu\Models\Invoice;
-use MMBuxan\VeriFactu\Models\Breakdown;
-use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
-use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
-use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
+use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
+use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
+use MMBuxan\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Models\Invoice;
+use Tests\TestCase;
 
 class BreakdownModelTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testBreakdownCanBeCreated(): void
+    public function test_breakdown_can_be_created(): void
     {
         $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create([
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
@@ -26,14 +26,14 @@ class BreakdownModelTest extends TestCase
         $this->assertEquals($invoice->id, $breakdown->invoice_id);
     }
 
-    public function testBreakdownBelongsToInvoice(): void
+    public function test_breakdown_belongs_to_invoice(): void
     {
         $invoice = Invoice::factory()->create();
         $breakdown = Breakdown::factory()->create(['invoice_id' => $invoice->id]);
         $this->assertInstanceOf(Invoice::class, $breakdown->invoice);
     }
 
-    public function testBreakdownSoftDelete(): void
+    public function test_breakdown_soft_delete(): void
     {
         $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create([
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
@@ -45,7 +45,7 @@ class BreakdownModelTest extends TestCase
         $this->assertSoftDeleted('breakdowns', ['id' => $breakdown->id]);
     }
 
-    public function testValidatesTaxAmount(): void
+    public function test_validates_tax_amount(): void
     {
         $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create([
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
@@ -78,4 +78,4 @@ class BreakdownModelTest extends TestCase
         // $breakdown->tax_amount = 21.01;
         // $breakdown->save();
     }
-} 
+}

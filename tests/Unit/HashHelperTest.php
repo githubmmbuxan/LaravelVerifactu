@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use PHPUnit\Framework\TestCase;
 use MMBuxan\VeriFactu\Helpers\HashHelper;
+use PHPUnit\Framework\TestCase;
 
 class HashHelperTest extends TestCase
 {
-    public function testGenerateInvoiceHashReturnsHashAndInputString(): void
+    public function test_generate_invoice_hash_returns_hash_and_input_string(): void
     {
         $data = [
             'issuer_tax_id' => 'A12345678',
@@ -26,7 +26,7 @@ class HashHelperTest extends TestCase
         $this->assertStringContainsString('issuer_tax_id=A12345678', $result['inputString']);
     }
 
-    public function testGenerateInvoiceHashThrowsOnMissingField(): void
+    public function test_generate_invoice_hash_throws_on_missing_field(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $data = [
@@ -41,4 +41,4 @@ class HashHelperTest extends TestCase
         ];
         HashHelper::generateInvoiceHash($data);
     }
-} 
+}

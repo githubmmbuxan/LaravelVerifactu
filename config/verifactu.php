@@ -9,4 +9,4 @@ return [
     ],
     'enable_breakdown_validation' => env('VERIFACTU_ENABLE_BREAKDOWN_VALIDATION', true),
     // Otros parámetros de configuración...
-]; 
+];

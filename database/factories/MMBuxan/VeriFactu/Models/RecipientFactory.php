@@ -23,4 +23,4 @@ class RecipientFactory extends Factory
             'type' => $this->faker->optional()->randomElement(['VAT', 'PASSPORT', 'NATIONAL_ID', 'RESIDENCE_CERTIFICATE', 'OTHER_DOCUMENT', 'UNREGISTERED']),
         ];
     }
-} 
+}

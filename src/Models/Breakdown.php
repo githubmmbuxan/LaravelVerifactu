@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace MMBuxan\VeriFactu\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
-use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
 use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
+use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
+use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
 
 class Breakdown extends Model
 {
@@ -46,4 +46,4 @@ class Breakdown extends Model
     {
         return $this->belongsTo(Invoice::class);
     }
-} 
+}

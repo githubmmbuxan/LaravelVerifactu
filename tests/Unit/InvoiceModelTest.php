@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use MMBuxan\VeriFactu\Models\Invoice;
 use MMBuxan\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Models\Invoice;
 use MMBuxan\VeriFactu\Models\Recipient;
 use Tests\TestCase;
 
@@ -12,7 +12,7 @@ class InvoiceModelTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testInvoiceCanBeCreated(): void
+    public function test_invoice_can_be_created(): void
     {
         $invoice = Invoice::factory()->create([
             'number' => 'INV-100',
@@ -23,7 +23,7 @@ class InvoiceModelTest extends TestCase
         $this->assertEquals('Test Customer', $invoice->customer_name);
     }
 
-    public function testInvoiceHasBreakdownsAndRecipients(): void
+    public function test_invoice_has_breakdowns_and_recipients(): void
     {
         $invoice = \Database\Factories\MMBuxan\VeriFactu\Models\InvoiceFactory::new()->create();
         $breakdown = Breakdown::factory()->create(['invoice_id' => $invoice->id]);
@@ -32,14 +32,14 @@ class InvoiceModelTest extends TestCase
         $this->assertTrue($invoice->recipients->contains($recipient));
     }
 
-    public function testInvoiceSoftDelete(): void
+    public function test_invoice_soft_delete(): void
     {
         $invoice = Invoice::factory()->create();
         $invoice->delete();
         $this->assertSoftDeleted('invoices', ['id' => $invoice->id]);
     }
 
-    public function testAdvancedInvoiceRegistration(): void
+    public function test_advanced_invoice_registration(): void
     {
         $invoiceData = [
             'uuid' => (string) \Illuminate\Support\Str::uuid(),
@@ -105,19 +105,19 @@ class InvoiceModelTest extends TestCase
         // $breakdown->save();
         // $breakdown->tax_amount = 21.01;
         // $breakdown->save();
-        
+
         // Validación del hash calculado y almacenado
         $hashData = [
             'issuer_tax_id' => $invoice->issuer_tax_id,
             'invoice_number' => $invoice->number,
             'issue_date' => $invoice->date instanceof \Illuminate\Support\Carbon ? $invoice->date->format('Y-m-d') : $invoice->date,
-            'invoice_type' => $invoice->type instanceof \BackedEnum ? $invoice->type->value : (string)$invoice->type,
-            'total_tax' => (string)$invoice->tax,
-            'total_amount' => (string)$invoice->total,
+            'invoice_type' => $invoice->type instanceof \BackedEnum ? $invoice->type->value : (string) $invoice->type,
+            'total_tax' => (string) $invoice->tax,
+            'total_amount' => (string) $invoice->total,
             'previous_hash' => '',
             'generated_at' => $invoice->updated_at->format('c'),
         ];
         $expectedHash = \MMBuxan\VeriFactu\Helpers\HashHelper::generateInvoiceHash($hashData)['hash'];
         $this->assertEquals($expectedHash, $invoice->hash);
     }
-} 
+}

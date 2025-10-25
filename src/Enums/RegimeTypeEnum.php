@@ -26,7 +26,7 @@ enum RegimeTypeEnum: string
 
     public function description(): string
     {
-        return match($this) {
+        return match ($this) {
             self::GENERAL => 'General regime operation.',
             self::EXPORT => 'Export operation.',
             self::USED_GOODS => 'Special regime for used goods, art, antiques, and collectibles.',
@@ -46,4 +46,4 @@ enum RegimeTypeEnum: string
             self::SIMPLIFIED => 'Simplified regime.',
         };
     }
-} 
+}

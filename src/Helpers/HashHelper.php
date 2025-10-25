@@ -20,7 +20,7 @@ class HashHelper
     /**
      * Generates the hash for an invoice record.
      *
-     * @param array $data Invoice record data in the correct order.
+     * @param  array  $data  Invoice record data in the correct order.
      * @return array ['hash' => string, 'inputString' => string]
      */
     public static function generateInvoiceHash(array $data): array
@@ -35,24 +35,26 @@ class HashHelper
         $inputString .= self::field('previous_hash', $data['previous_hash']);
         $inputString .= self::field('generated_at', $data['generated_at'], false);
         $hash = strtoupper(hash('sha256', $inputString, false));
+
         return ['hash' => $hash, 'inputString' => $inputString];
     }
 
     private static function validateData(array $requiredFields, array $data): void
     {
         $missing = array_diff($requiredFields, array_keys($data));
-        if (!empty($missing)) {
-            throw new \InvalidArgumentException('Missing required fields: ' . implode(', ', $missing));
+        if (! empty($missing)) {
+            throw new \InvalidArgumentException('Missing required fields: '.implode(', ', $missing));
         }
         $extra = array_diff(array_keys($data), $requiredFields);
-        if (!empty($extra)) {
-            throw new \InvalidArgumentException('Unexpected fields: ' . implode(', ', $extra));
+        if (! empty($extra)) {
+            throw new \InvalidArgumentException('Unexpected fields: '.implode(', ', $extra));
         }
     }
 
     private static function field(string $name, string $value, bool $includeSeparator = true): string
     {
         $value = trim($value);
-        return "{$name}={$value}" . ($includeSeparator ? '&' : '');
+
+        return "{$name}={$value}".($includeSeparator ? '&' : '');
     }
-} 
+}

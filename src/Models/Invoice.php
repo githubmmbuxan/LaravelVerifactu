@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace MMBuxan\VeriFactu\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use MMBuxan\VeriFactu\Enums\InvoiceType;
 
 class Invoice extends Model
@@ -27,9 +27,9 @@ class Invoice extends Model
                 'issuer_tax_id' => $invoice->issuer_tax_id,
                 'invoice_number' => $invoice->number,
                 'issue_date' => $invoice->date instanceof \Illuminate\Support\Carbon ? $invoice->date->format('Y-m-d') : $invoice->date,
-                'invoice_type' => $invoice->type instanceof \BackedEnum ? $invoice->type->value : (string)$invoice->type,
-                'total_tax' => (string)$invoice->tax,
-                'total_amount' => (string)$invoice->total,
+                'invoice_type' => $invoice->type instanceof \BackedEnum ? $invoice->type->value : (string) $invoice->type,
+                'total_tax' => (string) $invoice->tax,
+                'total_amount' => (string) $invoice->total,
                 'previous_hash' => $invoice->previous_hash ?? '', // Si implementas encadenamiento
                 'generated_at' => now()->format('c'),
             ];
@@ -79,4 +79,4 @@ class Invoice extends Model
     {
         return $this->hasMany(Recipient::class);
     }
-} 
+}

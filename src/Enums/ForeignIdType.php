@@ -15,7 +15,7 @@ enum ForeignIdType: string
 
     public function description(): string
     {
-        return match($this) {
+        return match ($this) {
             self::VAT => 'VAT ID',
             self::PASSPORT => 'Passport',
             self::NATIONAL_ID => 'National ID issued by country of residence',
@@ -24,4 +24,4 @@ enum ForeignIdType: string
             self::UNREGISTERED => 'Unregistered',
         };
     }
-} 
+}

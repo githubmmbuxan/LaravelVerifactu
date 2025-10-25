@@ -37,4 +37,4 @@ class VeriFactuServiceProvider extends ServiceProvider
             Breakdown::observe(BreakdownObserver::class);
         }
     }
-} 
+}

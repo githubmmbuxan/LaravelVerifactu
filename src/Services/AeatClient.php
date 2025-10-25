@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace MMBuxan\VeriFactu\Services;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use MMBuxan\VeriFactu\Models\Invoice;
-use Illuminate\Support\Facades\Log;
 
 class AeatClient
 {
     private string $baseUri;
+
     private string $certPath;
+
     private ?string $certPassword;
+
     private Client $client;
+
     private bool $production;
 
     public function __construct(string $certPath, ?string $certPassword = null, bool $production = true)
@@ -36,9 +38,6 @@ class AeatClient
 
     /**
      * Send invoice registration to AEAT (dummy implementation, extend as needed)
-     *
-     * @param Invoice $invoice
-     * @return array
      */
     public function sendInvoice(Invoice $invoice): array
     {
@@ -81,9 +80,9 @@ class AeatClient
             'issuer_tax_id' => $issuerVat,
             'invoice_number' => $invoice->number,
             'issue_date' => $invoice->date->format('Y-m-d'),
-            'invoice_type' => $invoice->type->value ?? (string)$invoice->type,
-            'total_tax' => (string)$invoice->tax,
-            'total_amount' => (string)$invoice->total,
+            'invoice_type' => $invoice->type->value ?? (string) $invoice->type,
+            'total_tax' => (string) $invoice->tax,
+            'total_amount' => (string) $invoice->total,
             'previous_hash' => '', // Si aplica, para encadenamiento
             'generated_at' => now()->format('c'),
         ];
@@ -98,14 +97,14 @@ class AeatClient
                 'FechaExpedicionFactura' => $invoice->date->format('Y-m-d'),
             ],
             'NombreRazonEmisor' => $issuerName,
-            'TipoFactura' => $invoice->type->value ?? (string)$invoice->type,
+            'TipoFactura' => $invoice->type->value ?? (string) $invoice->type,
             'DescripcionOperacion' => 'Invoice issued',
             'Destinatarios' => [
                 'IDDestinatario' => $destinatarios,
             ],
             'Desglose' => $desgloses,
-            'CuotaTotal' => (string)$invoice->tax,
-            'ImporteTotal' => (string)$invoice->total,
+            'CuotaTotal' => (string) $invoice->tax,
+            'ImporteTotal' => (string) $invoice->total,
             'Encadenamiento' => [
                 'PrimerRegistro' => 'S',
             ],
@@ -128,7 +127,7 @@ class AeatClient
         $body = [
             'Cabecera' => $cabecera,
             'RegistroFactura' => [
-                [ 'RegistroAlta' => $registroAlta ]
+                ['RegistroAlta' => $registroAlta],
             ],
         ];
 
@@ -159,6 +158,7 @@ class AeatClient
             $client = new \SoapClient($wsdl, $options);
             $client->__setLocation($location);
             $response = $client->__soapCall('RegFactuSistemaFacturacion', [$body]);
+
             return [
                 'status' => 'success',
                 'request' => $client->__getLastRequest(),
@@ -176,4 +176,4 @@ class AeatClient
     }
 
     // Métodos adicionales para anulación, consulta, etc. pueden añadirse aquí
-} 
+}

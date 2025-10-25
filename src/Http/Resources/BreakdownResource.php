@@ -24,4 +24,4 @@ class BreakdownResource extends JsonResource
             'exemption_description' => $this->exemption_description,
         ];
     }
-} 
+}

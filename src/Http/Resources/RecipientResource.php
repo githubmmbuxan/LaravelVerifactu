@@ -21,4 +21,4 @@ class RecipientResource extends JsonResource
             'type' => $this->type,
         ];
     }
-} 
+}

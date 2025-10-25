@@ -12,4 +12,4 @@ class VeriFactu extends Facade
     {
         return 'verifactu';
     }
-} 
+}

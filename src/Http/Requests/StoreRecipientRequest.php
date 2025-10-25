@@ -26,4 +26,4 @@ class StoreRecipientRequest extends FormRequest
             'type' => ['nullable', 'string', 'max:10'],
         ];
     }
-} 
+}

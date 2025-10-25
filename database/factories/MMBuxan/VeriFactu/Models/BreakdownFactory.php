@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Database\Factories\MMBuxan\VeriFactu\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use MMBuxan\VeriFactu\Models\Breakdown;
-use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
-use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
 use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
+use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
+use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
+use MMBuxan\VeriFactu\Models\Breakdown;
 
 class BreakdownFactory extends Factory
 {
@@ -45,4 +45,4 @@ class BreakdownFactory extends Factory
             'exemption_description' => $exemptionDescription,
         ];
     }
-} 
+}

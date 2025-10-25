@@ -6,6 +6,4 @@ namespace MMBuxan\VeriFactu\Exceptions;
 
 use Exception;
 
-class VeriFactuException extends Exception
-{
-} 
+class VeriFactuException extends Exception {}

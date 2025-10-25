@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Database\Factories\MMBuxan\VeriFactu\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
-use MMBuxan\VeriFactu\Models\Invoice;
 use MMBuxan\VeriFactu\Enums\InvoiceType;
+use MMBuxan\VeriFactu\Models\Invoice;
 
 class InvoiceFactory extends Factory
 {
@@ -17,7 +16,7 @@ class InvoiceFactory extends Factory
     {
         return [
             'uuid' => $this->faker->uuid,
-            'number' => 'INV-' . $this->faker->unique()->numberBetween(100, 999),
+            'number' => 'INV-'.$this->faker->unique()->numberBetween(100, 999),
             'date' => $this->faker->date(),
             'customer_name' => $this->faker->company,
             'customer_tax_id' => strtoupper($this->faker->bothify('A########')),
@@ -36,4 +35,4 @@ class InvoiceFactory extends Factory
             'cancelled_at' => null,
         ];
     }
-} 
+}

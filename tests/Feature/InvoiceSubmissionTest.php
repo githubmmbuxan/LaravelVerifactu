@@ -1,11 +1,11 @@
 <?php
 
-use MMBuxan\VeriFactu\Models\Invoice;
-use MMBuxan\VeriFactu\Models\Breakdown;
-use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
-use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
-use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
 use MMBuxan\VeriFactu\Enums\InvoiceType;
+use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
+use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
+use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
+use MMBuxan\VeriFactu\Models\Breakdown;
+use MMBuxan\VeriFactu\Models\Invoice;
 
 // Usa el TestCase de tu paquete
 uses(Tests\TestCase::class);

@@ -17,7 +17,7 @@ enum InvoiceType: string
 
     public function description(): string
     {
-        return match($this) {
+        return match ($this) {
             self::STANDARD => 'Standard invoice (art. 6, 7.2 and 7.3 RD 1619/2012)',
             self::SIMPLIFIED => 'Simplified invoice and invoices without recipient identification art. 6.1.d) RD 1619/2012',
             self::SUBSTITUTE => 'Invoice issued as a substitute for previously declared simplified invoices',
@@ -28,4 +28,4 @@ enum InvoiceType: string
             self::RECTIFICATIVE_R5 => 'Rectifying invoice for simplified invoices',
         };
     }
-} 
+}

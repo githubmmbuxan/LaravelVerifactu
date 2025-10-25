@@ -5,27 +5,25 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-use MMBuxan\VeriFactu\Services\AeatClient;
-use MMBuxan\VeriFactu\Models\Invoice;
-use MMBuxan\VeriFactu\Models\Breakdown;
-use MMBuxan\VeriFactu\Models\Recipient;
 use MMBuxan\VeriFactu\Enums\InvoiceType;
-use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
-use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
 use MMBuxan\VeriFactu\Enums\OperationTypeEnum;
+use MMBuxan\VeriFactu\Enums\RegimeTypeEnum;
+use MMBuxan\VeriFactu\Enums\TaxTypeEnum;
+use MMBuxan\VeriFactu\Models\Invoice;
+use MMBuxan\VeriFactu\Services\AeatClient;
+use Tests\TestCase;
 
 class AeatClientTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testAeatClientCanBeConfigured(): void
+    public function test_aeat_client_can_be_configured(): void
     {
         $client = new AeatClient('/path/to/cert.pem', 'password', false);
         $this->assertInstanceOf(AeatClient::class, $client);
     }
 
-    public function testSendInvoiceReturnsSuccessOrError(): void
+    public function test_send_invoice_returns_success_or_error(): void
     {
         // Prepara datos reales
         $invoice = Invoice::create([
@@ -63,7 +61,7 @@ class AeatClientTest extends TestCase
         $client = new AeatClient($certPath, $certPassword, $production);
 
         // Si el certificado no existe, mockear SoapClient para evitar error real
-        if (!file_exists($certPath)) {
+        if (! file_exists($certPath)) {
             $this->markTestSkipped('Certificado no disponible para integración real.');
         }
 
@@ -72,4 +70,4 @@ class AeatClientTest extends TestCase
         $this->assertArrayHasKey('request', $result);
         $this->assertArrayHasKey('response', $result);
     }
-} 
+}
